@@ -1,21 +1,19 @@
-import React from 'react';
-import {navLinks} from "../../constents/index.js";
+import React from "react";
+import { navLinks } from "../../constants/index.js";
 
-
-function Navbar(props) {
-    return (
-        <nav>
-            <div>
-                <a href="/">Home</a>
-                <ul>
-                    {/* eslint-disable-next-line no-undef */}
-                    {navLinks.map((navlink, index) => (
-                        <li key={index}>{navlink}</li>
-                    ))}
-                </ul>
-            </div>
-        </nav>
-    );
+function Navbar() {
+  return (
+    <nav>
+      <div>
+        <a href="/">Home</a>
+        <ul>
+          {navLinks.map((link) => (
+            <li key={link.id}>{link.title}</li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  );
 }
 
 export default Navbar;
