@@ -1,5 +1,6 @@
 import { useGSAP } from "@gsap/react";
-import {navLinks} from "../../constents/index.js";
+import { navLinks } from "../../constants";
+import gsap from "gsap";
 
 
 function Navbar(props) {
@@ -30,7 +31,7 @@ function Navbar(props) {
 		        </a>
 		
                 <ul>
-                    {navLinks.map((nav) => (
+                    {navLinks?.map((nav) => (
                         <li key={nav.id}>{nav.title}</li>
                     ))}
                 </ul>
