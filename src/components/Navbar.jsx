@@ -3,7 +3,7 @@ import { navLinks } from "../../constants";
 import gsap from "gsap";
 
 
-function Navbar(props) {
+function Navbar() {
     useGSAP(() => {
 
         const navTween = gsap.timeline({
