@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { allCocktails } from '../../constants'
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 
 export default function Menu() {
   const contentRef = useRef();
@@ -19,6 +21,17 @@ export default function Menu() {
  const currentCocktail = getCocktailAt(0);
  const prevCocktail = getCocktailAt(-1);
  const nextCocktail = getCocktailAt(1);
+
+ useGSAP(() => {
+	gsap.fromTo('#title',{opacity: 0}, {opacity: 1, duration: 1});
+	gsap.fromTo('.cocktail img',{ opacity: 0, xPercent:-100},
+		{xPercent: 1, opacity: 1, duration: 1, ease: "power1.in"});
+
+	gsap.fromTo('.details h2',{opacity: 0, yPercent: 100},{opacity: 1, yPercent: 0, duration: 1, ease: "power1.in"});
+	gsap.fromTo('.details p',{opacity: 0, yPercent: 100},{opacity: 1, yPercent: 0, duration: 1, ease: "power1.in"});
+	gsap.fromTo('#title',{opacity: 0, yPercent: 100},{opacity: 1, yPercent: 0, duration: 1, ease: "power1.in"});
+	gsap.fromTo('.info p',{opacity: 0, yPercent: 100},{opacity: 1, yPercent: 0, duration: 1, ease: "power1.in"});
+}, [currentCocktail]);
 
   return (
     <section id="menu" aria-labelledby="menu-heading">
