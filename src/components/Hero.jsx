@@ -41,29 +41,29 @@ function Hero() {
       .to(".right-leaf", { y: 200 }, 0)
       .to(".left-leaf", { y: -200 }, 0);
 
-   const startValue = isMobile ? "top 50%" : "center 60%";
-	const endValue = isMobile ? "120% top" : "bottom top";
-	
-	let tl = gsap.timeline({
-	 scrollTrigger: {
-		trigger: "video",
-		start: startValue,
-		end: endValue,
-		scrub: true,
-		pin: true,
-	 },
-	})
-	
+    const startValue = isMobile ? "top 50%" : "center 60%";
+    const endValue = isMobile ? "120% top" : "bottom top";
+
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "video",
+        start: startValue,
+        end: endValue,
+        scrub: true,
+        pin: true,
+      },
+    });
+
     videoRef.current.onloadedmetadata = () => {
-     tl.to(videoRef.current, {
-      currentTime: videoRef.current.duration,
-     })
+      tl.to(videoRef.current, {
+        currentTime: videoRef.current.duration,
+      });
     };
   }, []);
-  
-    return (
-      <>
-        <section id="hero" className="noisy">
+
+  return (
+    <>
+      <section id="hero" className="noisy">
         <h1 className="title">MOJITO</h1>
         <img
           src="/images/hero-right-leaf.png"
@@ -98,12 +98,7 @@ function Hero() {
       </section>
 
       <div className="video absolute inset-0">
-        <video
-          ref={videoRef}
-          muted
-          preload="auto"
-          src="/public/videos/output.mp4"
-        />
+        <video ref={videoRef} muted preload="auto" src="/videos/output.mp4" />
       </div>
     </>
   );

@@ -26,19 +26,37 @@ export default function Menu() {
 
   useGSAP(() => {
     gsap.fromTo("#title", { opacity: 0 }, { opacity: 1, duration: 1 });
-	gsap.fromTo()
   }, [currentIndex]);
 
- useGSAP(() => {
-	gsap.fromTo('#title',{opacity: 0}, {opacity: 1, duration: 1});
-	gsap.fromTo('.cocktail img',{ opacity: 0, xPercent:-100},
-		{xPercent: 1, opacity: 1, duration: 1, ease: "power1.in"});
+  useGSAP(() => {
+    gsap.fromTo("#title", { opacity: 0 }, { opacity: 1, duration: 1 });
+    gsap.fromTo(
+      ".cocktail img",
+      { opacity: 0, xPercent: -100 },
+      { xPercent: 1, opacity: 1, duration: 1, ease: "power1.in" }
+    );
 
-	gsap.fromTo('.details h2',{opacity: 0, yPercent: 100},{opacity: 1, yPercent: 0, duration: 1, ease: "power1.in"});
-	gsap.fromTo('.details p',{opacity: 0, yPercent: 100},{opacity: 1, yPercent: 0, duration: 1, ease: "power1.in"});
-	gsap.fromTo('#title',{opacity: 0, yPercent: 100},{opacity: 1, yPercent: 0, duration: 1, ease: "power1.in"});
-	gsap.fromTo('.info p',{opacity: 0, yPercent: 100},{opacity: 1, yPercent: 0, duration: 1, ease: "power1.in"});
-}, [currentCocktail]);
+    gsap.fromTo(
+      ".details h2",
+      { opacity: 0, yPercent: 100 },
+      { opacity: 1, yPercent: 0, duration: 1, ease: "power1.in" }
+    );
+    gsap.fromTo(
+      ".details p",
+      { opacity: 0, yPercent: 100 },
+      { opacity: 1, yPercent: 0, duration: 1, ease: "power1.in" }
+    );
+    gsap.fromTo(
+      "#title",
+      { opacity: 0, yPercent: 100 },
+      { opacity: 1, yPercent: 0, duration: 1, ease: "power1.in" }
+    );
+    gsap.fromTo(
+      ".info p",
+      { opacity: 0, yPercent: 100 },
+      { opacity: 1, yPercent: 0, duration: 1, ease: "power1.in" }
+    );
+  }, [currentCocktail]);
 
   return (
     <section id="menu" aria-labelledby="menu-heading">
